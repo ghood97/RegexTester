@@ -5,8 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegexTester"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="875">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <Label Content="Pattern:"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="20"/>
+            <TextBox Width="600"
+                     FontSize="20"
+                     VerticalAlignment="Center"
+                     Padding="5 0"/>
+        </StackPanel>
+        <DockPanel LastChildFill="True"
+                    Grid.Row="1">
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Top">
+                <Label Content="Text to match:"
+                       FontWeight="Bold"
+                       FontSize="14"/>
+            </StackPanel>
+            <TextBox Name="tbMultiLine"
+                     TextWrapping="NoWrap"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Visible"
+                     FontSize="17"
+                     Margin="5 0"/>
+
+        </DockPanel>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center">
+            <Button Content="Match"
+                    Margin="10 0"
+                    Padding="20 10"
+                    VerticalAlignment="Center"
+                    FontSize="18"/>
+            <Button Content="Next"
+                    Padding="20 10"
+                    Margin="10 0"
+                    VerticalAlignment="Center"
+                    FontSize="18"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        Margin="10 0">
+                <Label Content="Replacement:"
+                       FontSize="18"/>
+                <TextBox Width="250"
+                         FontSize="18"/>
+            </StackPanel>
+            <Button Content="Replace"
+                    Margin="10 0"
+                    Padding="20 10"
+                    FontSize="18"
+                    VerticalAlignment="Center"/>
+            <Button Content="Split"
+                    Margin="10 0"
+                    Padding="20 10"
+                    FontSize="18"
+                    VerticalAlignment="Center"/>
+        </StackPanel>
+        <DockPanel LastChildFill="True"
+                    Grid.Row="3"
+                    Margin="0 0 0 10">
+            <Label Content="Result:"
+                   FontWeight="Bold"
+                   FontSize="14"
+                   DockPanel.Dock="Top"/>
+                <TextBox Name="resultBox"
+                     TextWrapping="NoWrap"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Visible"
+                     FontSize="17"
+                     Margin="5 0"
+                     IsReadOnly="True"/>
+
+        </DockPanel>
     </Grid>
 </Window>
