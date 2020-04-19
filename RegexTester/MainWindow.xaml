@@ -20,7 +20,8 @@
                    VerticalAlignment="Center"
                    FontWeight="Bold"
                    FontSize="20"/>
-            <TextBox Width="600"
+            <TextBox x:Name="patternBox"
+                     Width="600"
                      FontSize="20"
                      VerticalAlignment="Center"
                      Padding="5 0"/>
@@ -33,7 +34,7 @@
                        FontWeight="Bold"
                        FontSize="14"/>
             </StackPanel>
-            <TextBox Name="tbMultiLine"
+            <TextBox Name="matchTextBox"
                      TextWrapping="NoWrap"
                      AcceptsReturn="True"
                      VerticalScrollBarVisibility="Visible"
@@ -44,12 +45,14 @@
         <StackPanel Orientation="Horizontal"
                     Grid.Row="2"
                     HorizontalAlignment="Center">
-            <Button Content="Match"
+            <Button x:Name="matchButton"
+                    Content="Match"
                     Margin="10 0"
                     Padding="20 10"
                     VerticalAlignment="Center"
                     FontSize="18"/>
-            <Button Content="Next"
+            <Button x:Name="nextButton"
+                    Content="Next"
                     Padding="20 10"
                     Margin="10 0"
                     VerticalAlignment="Center"
@@ -59,15 +62,18 @@
                         Margin="10 0">
                 <Label Content="Replacement:"
                        FontSize="18"/>
-                <TextBox Width="250"
+                <TextBox x:Name="replacementBox"
+                         Width="250"
                          FontSize="18"/>
             </StackPanel>
-            <Button Content="Replace"
+            <Button x:Name="replaceButton"
+                    Content="Replace"
                     Margin="10 0"
                     Padding="20 10"
                     FontSize="18"
                     VerticalAlignment="Center"/>
-            <Button Content="Split"
+            <Button x:Name="splitButton"
+                    Content="Split"
                     Margin="10 0"
                     Padding="20 10"
                     FontSize="18"
@@ -80,7 +86,7 @@
                    FontWeight="Bold"
                    FontSize="14"
                    DockPanel.Dock="Top"/>
-                <TextBox Name="resultBox"
+            <TextBox x:Name="resultBox"
                      TextWrapping="NoWrap"
                      AcceptsReturn="True"
                      VerticalScrollBarVisibility="Visible"

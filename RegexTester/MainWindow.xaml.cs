@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace RegexTester
 {
@@ -20,9 +22,51 @@ namespace RegexTester
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Regex pattern;
+        private MatchCollection matches;
+        private string matchText;
         public MainWindow()
         {
             InitializeComponent();
+            this.pattern = new Regex("");
+            matchButton.Click += MatchButton_Click;
+        }
+
+        private void MatchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(validRegex(patternBox.Text))
+            {
+                this.pattern = new Regex(patternBox.Text);
+                this.matchText = matchTextBox.Text;
+                this.matches = this.pattern.Matches(this.matchText);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid regular expression.");
+            }
+        }
+
+        private bool validRegex(string pattern)
+        {
+            bool isValid = true;
+            if ((pattern != null) && (pattern.Trim().Length > 0))
+            {
+                try
+                {
+                    Regex.Match("", pattern);
+                }
+                catch (ArgumentException)
+                {
+                    // BAD PATTERN: Syntax error
+                    isValid = false;
+                }
+            }
+            else
+            {
+                //BAD PATTERN: Pattern is null or blank
+                isValid = false;
+            }
+            return isValid;
         }
     }
 }
